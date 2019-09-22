@@ -111,12 +111,7 @@ function __generate_ssh_host_keys ()
 	fi
 
 	case "${version}" in
-		6)
-			__generate_ssh_host_key "${replace}" rsa1
-			__generate_ssh_host_key "${replace}" rsa
-			__generate_ssh_host_key "${replace}" dsa
-			;;
-		7)
+		30)
 			__generate_ssh_host_key "${replace}" rsa1
 			__generate_ssh_host_key "${replace}" rsa
 			__generate_ssh_host_key "${replace}" dsa

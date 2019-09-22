@@ -1,6 +1,6 @@
 readonly DOCKER_HOSTNAME="localhost"
 readonly REDACTED_VALUE="********"
-readonly STARTUP_TIME=2
+readonly STARTUP_TIME=5
 readonly TEST_DIRECTORY="test"
 readonly PRIVATE_KEY_ID_RSA_TEST_1_BASE64="LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBeDgzZnBtRjBoaTBFbWNGQ1ZzR0NqZ1NPaU81b1I0ZHpzTkEyMDBMMEZCNFpBM0VGCmE2bzZRU21hdkVySnhDdUJNY2lYa1VPVTdVK1ZhcUpYMVJ1aTVXazk4c1Y1aWNjZStXUEtNcVJRQ3MrNkFqa0EKaWJvS3Jtd0pNZG1LVStpanUzZWxEajZqcmk2WmhZdDdma2NuK1BVMnpaWTBuck5iRzBnc1ZBNVUzcE1SdmlMZgp2M21WS2wxcm5hSzUyQ1FuNWpIdFZBR0xVY0RDb3NnMXFsTlN6ZFNtOXMxVWUrbUtZek1TdlNJaENZNGFXVXYwCmU5TThSaElveGF5L2tiK0FjZk12MUl3RlZiVTVMNldoR284ZTZUSjNkSDdINTFNSVdDNkZSNEJ1V1hSd0dFa2MKdkkvOVBwcVhsUkxFMEdTUUozb0ZHMVRiZ1JITjhkbTljWUpFdHdJREFRQUJBb0lCQUF0cUYzekoxSDVWMUExMApuUFdYMkgyRWhTQU5mcWVYZFdTRWdKMVJGZUNRVjUxNnQzU1BKUVRUKzZNR0lzQ3lPNDg4aG13bUVEditiK3JICm0zenhOejBqNWdZWWdmajlCeWY0SzNUNUxobHdCSkJiOFV2czlPOUIvTVI4U1FyQ0g1aDJIVmZTL0ViWElxNGUKYWMrdEFQdVlCcWw0QzBtRnRZNjVjTTdjZ3J5MFVGYW1SUUpRQk5Yd2JjV09pbEYwbWxhZTZUTnBLSzlISWhJcgpoZWxIeS9qMmlvZVNXTHVkT3dYaUtKbFRZeEhqR083L3JtYkh0NFJ4aFE4NHJlVmNETjhqMkdQQWY4UXh2bkNuCjJEdStacUhpK2NCVTdjczB0dGVNRm1yTUFCS1dETDIzMFdnT3BCeHd6eUJRUG5TbVpta2kvbnZyWGRkb2tYNmQKSUVlSG93RUNnWUVBNXBnZlpEYVp3b2YvSW1ud1c5SGJSZEM0QWQ0clJvYno0NEtyZlZDUEtKT3VCSTVsdmtpegpxbzE1OEJFWnZXa1ZORVdlcnhaUGRQd0V2ejBQOGxVZ1MzVXVBYVpMbHBmc3JtM2htVTdKM25pZ2xSc3hYZllTCncrK2JDTEx2OElqUDE1dEhCamtOR3Z2dVc4N0JYOFlCSHJZSldSVklBNUU5aDYwOHllcHlSNTBDZ1lFQTNkRlMKakhPK2czVW5WTk9zNTk3NVRyZmFOSm5IT0M1ZVNKdm1qNHNuWEgvL0FzOTBzYkNkV2liZmg2RmQrQTF6eUdVagpta20rK01oWEo5ZUpUbmNFekVwbGZHNHc0REs5YS9YWlRaRlZmOStBclp3Z3IvTkVnTlhIQzIwRHRzenhPUTBiClQybEFhU2tzaVYrRi9kNUx0bVhiWFZRbFZxY3ZrQ3VMaGM2NTcyTUNnWUFVVXJQeGtSNWNGc0JWdUNDRzl5ZnMKTDBrSVlSeFBTdldUeDZCMW12UURENEQyeGRZUnZ6YVdnWUdOdHZRZHpYVWc5a0hXREpGVUxpSDgrTlMrOXVHeAp4TklaTXg3V1Z1MTFNaG4vK1FHeHFjLzlWRGcxbjhwbm1tWi9qY1czM1ZiMEdhdFkwUTVtb20yUGlkbGhKNEpSCndwbHdVSC9ZVUtTcm9Ja0xBcTZ2d1FLQmdRQ1lZZHFSdmxuY3VUakIzNERpOFp6WFpSbzBGSWgxb2ZVSGNJSmQKamowR0lMQXhZQTlNbW9ZZWpxSDA3UGcvRmc2NlZqQzFKNEJZTEZramQ4Qk45Um1JdG5zdGxnMWhsN25sVnNsbgpyalhNV09Cdlk5aFl4NGdCOGRxQmtPeUNRaHhkRXhIMTVkcG40KzlDbUNyV2trWDFFZGczTHoxUFlCOGVyYXQxCnl1U1UvUUtCZ0EwZ1dBZGNHNmJOVUxmUC9yYWJHTnpqOUFjS2RQUjJtend2VUhhcDMzeUZSV3FEekRUcVlWMEYKRkJoV3g3TnBlN3lXTUtnM1huaUcyN3NuU0krZS96cXZ3c0wvLzBwTXdUQU8vc3BIbWZKQjBzcUx1WFRZYWJGWQprMURVRzFSK0FZM25sNzFWT0crd3FKVnl6VXZaMWhmSkkzZ0R4aGFqa3NBZ3dXa0pTUGh0Ci0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg=="
 readonly PRIVATE_KEY_ID_RSA_TEST_1_MD5SUM="be458f698f9f6dc89b5d94f8bf56054c"
@@ -143,7 +143,7 @@ function test_basic_ssh_operations ()
 				--detach \
 				--name ssh.1 \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			it "Can publish container port 22 to host port ${DOCKER_PORT_MAP_TCP_22}."
@@ -272,7 +272,7 @@ function test_basic_sftp_operations ()
 				--name sftp.1 \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				--env SSH_USER_FORCE_SFTP=true \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			it "Can publish container port 22 to host port ${DOCKER_PORT_MAP_TCP_22}."
@@ -410,7 +410,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "SSH_PASSWORD_AUTHENTICATION=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -489,7 +489,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_PASSWORD_AUTHENTICATION=true" \
 				--env "SSH_AUTHORIZED_KEYS=${PUBLIC_KEY_ID_RSA_INSECURE}" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -535,7 +535,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -594,9 +594,9 @@ function test_custom_ssh_configuration ()
 				--detach \
 				--name ssh.1 \
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
-				--env "SSH_USER=centos" \
+				--env "SSH_USER=fedora" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -621,7 +621,7 @@ function test_custom_ssh_configuration ()
 					-i ${TEST_DIRECTORY}/fixture/id_rsa_insecure \
 					-o StrictHostKeyChecking=no \
 					-o LogLevel=error \
-					centos@${DOCKER_HOSTNAME} \
+					fedora@${DOCKER_HOSTNAME} \
 					-- printf \
 						'%s\\n' \
 						"\${HOME}"
@@ -629,7 +629,7 @@ function test_custom_ssh_configuration ()
 
 				assert equal \
 					"${user_home}" \
-					"/home/centos"
+					"/home/fedora"
 			end
 
 			it "Logs the setting value."
@@ -641,7 +641,7 @@ function test_custom_ssh_configuration ()
 
 				assert equal \
 					"${user/user : /}" \
-					"centos"
+					"fedora"
 			end
 		end
 
@@ -656,7 +656,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_AUTHORIZED_KEYS=${PUBLIC_KEY_ID_RSA_TEST_1}" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -732,7 +732,7 @@ function test_custom_ssh_configuration ()
 					--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 					--env "SSH_AUTHORIZED_KEYS=${PUBLIC_KEY_ID_RSA_TEST_COMBINED_BASE64}" \
 					--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-					jdeathe/centos-ssh:latest \
+					pdouble16/fedora-ssh:latest \
 				&> /dev/null
 
 				container_port_22="$(
@@ -815,7 +815,7 @@ function test_custom_ssh_configuration ()
 					--env "SSH_AUTHORIZED_KEYS=/var/run/config/authorized_keys" \
 					--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 					--volume ${PWD}/${TEST_DIRECTORY}/fixture/config:/var/run/config:ro \
-					jdeathe/centos-ssh:latest \
+					pdouble16/fedora-ssh:latest \
 				&> /dev/null
 
 				container_port_22="$(
@@ -898,7 +898,7 @@ function test_custom_ssh_configuration ()
 					--name ssh.1 \
 					--env "SSH_USER_PRIVATE_KEY=${PRIVATE_KEY_ID_RSA_TEST_1_BASE64}" \
 					--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-					jdeathe/centos-ssh:latest \
+					pdouble16/fedora-ssh:latest \
 				&> /dev/null
 
 				container_port_22="$(
@@ -955,7 +955,7 @@ function test_custom_ssh_configuration ()
 					--env "SSH_USER_PRIVATE_KEY=/var/run/secrets/ssh_user_private_key" \
 					--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 					--volume ${PWD}/${TEST_DIRECTORY}/fixture/secrets:/var/run/secrets:ro \
-					jdeathe/centos-ssh:latest \
+					pdouble16/fedora-ssh:latest \
 				&> /dev/null
 
 				container_port_22="$(
@@ -1014,7 +1014,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_USER=app-1" \
 				--env "SSH_USER_HOME=/var/www/%u" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1074,7 +1074,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_USER_ID=1000:502" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1135,7 +1135,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_USER_ID=499:33" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1196,7 +1196,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_USER_SHELL=/bin/sh" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1258,7 +1258,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_INHERIT_ENVIRONMENT=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1305,7 +1305,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "SSH_USER_PASSWORD=Insecure_Passw0rd£" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			# Prevent sudo lecture output when testing the sudo password
@@ -1375,7 +1375,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_USER_PASSWORD=/var/run/secrets/ssh_user_password" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				--volume ${PWD}/${TEST_DIRECTORY}/fixture/secrets:/var/run/secrets:ro \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			# Prevent sudo lecture output when testing the sudo password
@@ -1445,7 +1445,7 @@ function test_custom_ssh_configuration ()
 				--env 'SSH_USER_PASSWORD=$6$pepper$g5/OhofGtHVo3wqRgVHFQrJDyK0mV9bDpF5HP964wuIkQ7MXuYq1KRTmShaUmTQW3ZRsjw2MjC1LNPh5HMcrY0' \
 				--env "SSH_USER_PASSWORD_HASHED=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			# Prevent sudo lecture output when testing the sudo password
@@ -1512,7 +1512,7 @@ function test_custom_ssh_configuration ()
 				--env "SSH_USER_PASSWORD_HASHED=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				--volume ${PWD}/${TEST_DIRECTORY}/fixture/secrets:/var/run/secrets:ro \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			# Prevent sudo lecture output when testing the sudo password
@@ -1577,7 +1577,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "SSH_USER=root" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1695,7 +1695,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "SYSTEM_TIMEZONE=Europe/London" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			if ! __is_container_ready \
@@ -1743,14 +1743,14 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "ENABLE_SUPERVISOR_STDOUT=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			sleep ${STARTUP_TIME}
 
 			it "Can enable supervisor_stdout."
 				docker top ssh.1 \
-					| grep -qE '/usr/bin/python /usr/bin/supervisor_stdout'
+					| grep -qE '/usr/bin/python2 /usr/bin/supervisor_stdout'
 
 				assert equal \
 					"${?}" \
@@ -1766,14 +1766,14 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "ENABLE_SUPERVISOR_STDOUT=false" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			sleep ${STARTUP_TIME}
 
 			it "Can disable supervisor_stdout."
 				docker top ssh.1 \
-					| grep -qE '/usr/bin/python /usr/bin/supervisor_stdout'
+					| grep -qE '/usr/bin/python2 /usr/bin/supervisor_stdout'
 
 				assert equal \
 					"${?}" \
@@ -1789,7 +1789,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "ENABLE_SSHD_BOOTSTRAP=false" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			sleep ${STARTUP_TIME}
@@ -1813,7 +1813,7 @@ function test_custom_ssh_configuration ()
 				--name ssh.1 \
 				--env "ENABLE_SSHD_WRAPPER=false" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			sleep ${STARTUP_TIME}
@@ -1864,7 +1864,7 @@ function test_custom_sftp_configuration ()
 				--env "SSH_PASSWORD_AUTHENTICATION=true" \
 				--env "SSH_USER_FORCE_SFTP=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -1947,7 +1947,7 @@ function test_custom_sftp_configuration ()
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				--env SSH_CHROOT_DIRECTORY="/chroot/%u" \
 				--env SSH_USER_FORCE_SFTP=true \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -2025,7 +2025,7 @@ function test_custom_sftp_configuration ()
 					--env "SSH_USER_FORCE_SFTP=true" \
 					--env "SSH_USER_PRIVATE_KEY=${PRIVATE_KEY_ID_RSA_TEST_1_BASE64}" \
 					--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-					jdeathe/centos-ssh:latest \
+					pdouble16/fedora-ssh:latest \
 				&> /dev/null
 
 				container_port_22="$(
@@ -2093,7 +2093,7 @@ function test_custom_sftp_configuration ()
 				--env "ENABLE_SSHD_WRAPPER=false" \
 				--env "ENABLE_SSHD_BOOTSTRAP=true" \
 				--volume www-data.pool-1.1.1:/var/www \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			sleep ${STARTUP_TIME}
@@ -2112,7 +2112,7 @@ function test_custom_sftp_configuration ()
 				--env SSH_USER_FORCE_SFTP=true \
 				--env SSH_USER_HOME="/var/www" \
 				--volumes-from www-data.pool-1.1.1 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			container_port_22="$(
@@ -2187,7 +2187,7 @@ function test_healthcheck ()
 			docker run \
 				--detach \
 				--name ssh.1 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			events_since_timestamp="$(
@@ -2284,7 +2284,7 @@ function test_healthcheck ()
 				--detach \
 				--name ssh.1 \
 				--env ENABLE_SSHD_WRAPPER=false \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			events_since_timestamp="$(
@@ -2341,7 +2341,7 @@ function test_healthcheck ()
 			docker run \
 				--detach \
 				--name ssh.1 \
-				jdeathe/centos-ssh:latest \
+				pdouble16/fedora-ssh:latest \
 			&> /dev/null
 
 			docker exec -t \
@@ -2416,7 +2416,7 @@ if [[ ! -d ${TEST_DIRECTORY} ]]; then
 	exit 1
 fi
 
-describe "jdeathe/centos-ssh:latest"
+describe "pdouble16/fedora-ssh:latest"
 	__destroy
 	__setup
 	test_basic_ssh_operations

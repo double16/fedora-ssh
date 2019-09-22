@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # Naming convention:
 #
-#    centos-ssh@.service = {service-unit-install-template-name}
+#    fedora-ssh@.service = {service-unit-install-template-name}
 #        |
 #        +---------------- {image-name}
 #
@@ -42,7 +42,7 @@
 # ------------------------------------------------------------------------------
 
 [Unit]
-Description=centos-ssh // %p@%i
+Description=fedora-ssh // %p@%i
 Requires=docker.service
 After=docker.service
 
@@ -51,11 +51,11 @@ Restart=on-failure
 RestartSec=30
 TimeoutStartSec=1200
 Environment="DOCKER_CONTAINER_OPTS="
-Environment="DOCKER_IMAGE_NAME=centos-ssh"
+Environment="DOCKER_IMAGE_NAME=fedora-ssh"
 Environment="DOCKER_IMAGE_PACKAGE_PATH=/var/opt/scmi/packages"
 Environment="DOCKER_IMAGE_TAG={{RELEASE_VERSION}}"
 Environment="DOCKER_PORT_MAP_TCP_22=2020"
-Environment="DOCKER_USER=jdeathe"
+Environment="DOCKER_USER=pdouble16"
 Environment="ENABLE_SSHD_BOOTSTRAP=true"
 Environment="ENABLE_SSHD_WRAPPER=true"
 Environment="ENABLE_SUPERVISOR_STDOUT=false"

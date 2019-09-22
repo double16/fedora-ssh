@@ -1,6 +1,6 @@
-FROM centos:7.6.1810
+FROM fedora:30
 
-ARG RELEASE_VERSION="2.6.0"
+ARG RELEASE_VERSION="1.0.0"
 
 # ------------------------------------------------------------------------------
 # - Import the RPM GPG keys for repositories
@@ -10,38 +10,20 @@ ARG RELEASE_VERSION="2.6.0"
 #  supervisord to be easily inspected with "docker logs".
 # ------------------------------------------------------------------------------
 RUN rpm --rebuilddb \
-	&& rpm --import \
-		http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 \
-	&& rpm --import \
-		https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
-	&& rpm --import \
-		https://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY \
-	&& yum -y install \
+    && echo "proxy=http://192.168.99.102:3142/" >> /etc/dnf/dnf.conf \
+	&& dnf -y install \
 			--setopt=tsflags=nodocs \
-			--disableplugin=fastestmirror \
-		centos-release-scl \
-		centos-release-scl-rh \
-		epel-release \
-		https://centos7.iuscommunity.org/ius-release.rpm \
-	&& yum -y install \
-			--setopt=tsflags=nodocs \
-			--disableplugin=fastestmirror \
-		inotify-tools-3.14-8.el7 \
-		openssh-clients-7.4p1-21.el7 \
-		openssh-server-7.4p1-21.el7 \
-		openssl-1.0.2k-19.el7 \
-		python-setuptools-0.9.8-7.el7 \
-		sudo-1.8.23-4.el7 \
-		yum-plugin-versionlock-1.1.31-52.el7 \
-	&& yum versionlock add \
-		inotify-tools \
-		openssh \
-		openssh-server \
-		openssh-clients \
-		python-setuptools \
-		sudo \
-		yum-plugin-versionlock \
-	&& yum clean all \
+	    inotify-tools-3.14-17.fc30 \
+		openssh-clients-8.0p1-5.fc30 \
+		openssh-server-8.0p1-5.fc30 \
+		openssl-1:1.1.1c-6.fc30 \
+		python2-setuptools-40.8.0-1.fc30 \
+		util-linux-user-2.33.2-2.fc30 \
+		procps-ng-3.3.15-5.fc30 \
+		findutils-4.6.0-22.fc30 \
+		passwd-0.80-5.fc30 \
+	&& dnf clean all \
+	&& sed '/^proxy=/d' -i /etc/dnf/dnf.conf \
 	&& easy_install \
 		'supervisor == 4.0.4' \
 		'supervisor-stdout == 0.1.1' \
@@ -49,7 +31,7 @@ RUN rpm --rebuilddb \
 		/var/log/supervisor/ \
 	&& rm -rf /etc/ld.so.cache \
 	&& rm -rf /sbin/sln \
-	&& rm -rf /usr/{{lib,share}/locale,share/{man,doc,info,cracklib,i18n},{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
+	&& rm -rf /usr/{{lib,share}/share/{man,doc,info,cracklib,i18n},{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
 	&& rm -rf /{root,tmp,var/cache/{ldconfig,yum}}/* \
 	&& > /etc/sysconfig/i18n
 
@@ -84,7 +66,7 @@ RUN ln -sf \
 		/etc/sudoers \
 	&& sed -i \
 		-e "s~{{RELEASE_VERSION}}~${RELEASE_VERSION}~g" \
-		/etc/systemd/system/centos-ssh@.service \
+		/etc/systemd/system/fedora-ssh@.service \
 	&& chmod 644 \
 		/etc/{supervisord.conf,supervisord.d/{20-sshd-bootstrap,50-sshd-wrapper}.conf} \
 	&& chmod 700 \
@@ -118,12 +100,12 @@ ENV \
 # Set image metadata
 # ------------------------------------------------------------------------------
 LABEL \
-	maintainer="James Deathe <james.deathe@gmail.com>" \
+	maintainer="Patrick Double <pat@patdouble.com>" \
 	install="docker run \
 --rm \
 --privileged \
 --volume /:/media/root \
-jdeathe/centos-ssh:${RELEASE_VERSION} \
+pdouble16/fedora-ssh:${RELEASE_VERSION} \
 /usr/sbin/scmi install \
 --chroot=/media/root \
 --name=\${NAME} \
@@ -133,19 +115,19 @@ jdeathe/centos-ssh:${RELEASE_VERSION} \
 --rm \
 --privileged \
 --volume /:/media/root \
-jdeathe/centos-ssh:${RELEASE_VERSION} \
+pdouble16/fedora-ssh:${RELEASE_VERSION} \
 /usr/sbin/scmi uninstall \
 --chroot=/media/root \
 --name=\${NAME} \
 --tag=${RELEASE_VERSION} \
 --setopt='--volume {{NAME}}.config-ssh:/etc/ssh'" \
-	org.deathe.name="centos-ssh" \
-	org.deathe.version="${RELEASE_VERSION}" \
-	org.deathe.release="jdeathe/centos-ssh:${RELEASE_VERSION}" \
-	org.deathe.license="MIT" \
-	org.deathe.vendor="jdeathe" \
-	org.deathe.url="https://github.com/jdeathe/centos-ssh" \
-	org.deathe.description="CentOS-7 7.6.1810 x86_64 - SCL, EPEL and IUS Repositories / Supervisor / OpenSSH."
+	org.label-schema.name="fedora-ssh" \
+	org.label-schema.version="${RELEASE_VERSION}" \
+	org.label-schema.release="pdouble16/fedora-ssh:${RELEASE_VERSION}" \
+	org.label-schema.license="MIT" \
+	org.label-schema.vendor="pdouble16" \
+	org.label-schema.url="https://github.com/pdouble16/fedora-ssh" \
+	org.label-schema.description="Fedora 30 - Supervisor / OpenSSH."
 
 HEALTHCHECK \
 	--interval=1s \

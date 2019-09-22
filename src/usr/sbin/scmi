@@ -711,17 +711,17 @@ function scmi_info ()
 	local KEY_TYPE
 	local KEY_TYPES
 	local LABELS
-	local LABEL_NAMESPACE_PREFIX="org.deathe."
+	local LABEL_NAMESPACE_PREFIX="org.label-schema."
 	local LABEL_KEY_CLEAN
 	local LABEL_KEYS_DETAILS
 	local LABEL_KEYS_INFO="
-	 org.deathe.name
-	 org.deathe.version
-	 org.deathe.release
-	 org.deathe.license
-	 org.deathe.vendor
-	 org.deathe.url
-	 org.deathe.description
+	 org.label-schema.name
+	 org.label-schema.version
+	 org.label-schema.release
+	 org.label-schema.license
+	 org.label-schema.vendor
+	 org.label-schema.url
+	 org.label-schema.description
 	"
 	local LABEL_KEYS_SOURCE="
 	 name

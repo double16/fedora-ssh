@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # Naming convention:
 #
-#    centos-ssh@.service = {service-unit-install-template-name}
+#    fedora-ssh@.service = {service-unit-install-template-name}
 #        |
 #        +---------------- {image-name}
 #
@@ -41,7 +41,7 @@
 # ------------------------------------------------------------------------------
 
 [Unit]
-Description=centos-ssh etcd registration // %p@%i
+Description=fedora-ssh etcd registration // %p@%i
 After=etcd.service
 After=etcd2.service
 After={{SERVICE_UNIT_NAME}}@%i.service
