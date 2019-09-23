@@ -1,6 +1,7 @@
 FROM fedora:30
 
-ARG RELEASE_VERSION="1.0.0"
+ARG RELEASE_VERSION="30.0.0"
+ARG YUM_PROXY=
 
 # ------------------------------------------------------------------------------
 # - Import the RPM GPG keys for repositories
@@ -10,7 +11,7 @@ ARG RELEASE_VERSION="1.0.0"
 #  supervisord to be easily inspected with "docker logs".
 # ------------------------------------------------------------------------------
 RUN rpm --rebuilddb \
-    && echo "proxy=http://192.168.99.102:3142/" >> /etc/dnf/dnf.conf \
+	&& echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 	&& dnf -y install \
 			--setopt=tsflags=nodocs \
 	    inotify-tools-3.14-17.fc30 \

@@ -411,6 +411,7 @@ build: \
 	fi
 	@ $(docker) build \
 		--no-cache=$(NO_CACHE) \
+		--build-arg YUM_PROXY=${YUM_PROXY} \
 		-t $(DOCKER_USER)/$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG) \
 		.; \
 	if [[ $${?} -eq 0 ]]; \

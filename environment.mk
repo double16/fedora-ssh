@@ -2,8 +2,8 @@
 # Constants
 # ------------------------------------------------------------------------------
 DOCKER_IMAGE_NAME := fedora-ssh
-DOCKER_IMAGE_RELEASE_TAG_PATTERN := ^[1-2]\.[0-9]+\.[0-9]+$
-DOCKER_IMAGE_TAG_PATTERN := ^(latest|[1-2]\.[0-9]+\.[0-9]+)$
+DOCKER_IMAGE_RELEASE_TAG_PATTERN := ^[0-9][0-9]\.[0-9]+\.[0-9]+$
+DOCKER_IMAGE_TAG_PATTERN := ^(latest|[0-9][0-9]\.[0-9]+\.[0-9]+)$
 DOCKER_USER := pdouble16
 SHPEC_ROOT := test/shpec
 
