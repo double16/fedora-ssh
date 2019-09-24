@@ -36,12 +36,18 @@ jobs:
           command: |
             make build
 
-      - run:
-          name: Test
-          command: |
-            sudo make test-setup
-            sudo apt-get install expect
-            make -d test
+      # - run:
+      #     name: Test
+      #     command: |
+      #       if curl -o /dev/null -sf http://169.254.169.254:3142/; then
+      #       sudo sh -c 'cat > /etc/apt/apt.conf.d/01proxy <<EOF
+      #       Acquire::HTTP::Proxy "http://169.254.169.254:3142/";
+      #       Acquire::HTTPS::Proxy false;
+      #       EOF'
+      #       fi
+      #       sudo make test-setup
+      #       sudo apt-get install expect
+      #       make -d test
 
       - run:
           name: Generate docker build image cache
