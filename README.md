@@ -1,22 +1,21 @@
-centos-ssh
+fedora-ssh
 ==========
 
-Docker Images of CentOS-6 6.10 x86_64 / CentOS-7 7.6.1810 x86_64
+Docker Images of Fedora x86_64
 
 Includes public key authentication, Automated password generation and supports custom configuration via environment variables.
 
 ## Overview & links
 
-The latest CentOS-6 / CentOS-7 based releases can be pulled from the `centos-6` / `centos-7` Docker tags respectively. For production use it is recommended to select a specific release tag as shown in the examples.
+The latest Fedora based releases can be pulled from the `fedora:30` Docker tag. For production use it is recommended to select a specific release tag as shown in the examples.
 
 ### Tags and respective `Dockerfile` links
 
-- `centos-7`,[`2.6.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/2.6.0) [(centos-7/Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/centos-7/Dockerfile)
-- `centos-6`,[`1.11.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/1.11.0) [(centos-6/Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/centos-6/Dockerfile)
+- `30`,[`30.0.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/30.0.0) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 
 The Dockerfile can be used to build a base image that is the bases for several other docker images.
 
-Included in the build are the [SCL](https://www.softwarecollections.org/), [EPEL](http://fedoraproject.org/wiki/EPEL) and [IUS](https://ius.io) repositories. Installed packages include [inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki), [OpenSSH](http://www.openssh.com/portable.html) secure shell, [Sudo](http://www.courtesan.com/sudo/), [vim-minimal](http://www.vim.org/), python-setuptools, [supervisor](http://supervisord.org/) and [supervisor-stdout](https://github.com/coderanger/supervisor-stdout).
+Installed packages include [inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki), [OpenSSH](http://www.openssh.com/portable.html) secure shell, [Sudo](http://www.courtesan.com/sudo/), [vim-minimal](http://www.vim.org/), python-setuptools, [supervisor](http://supervisord.org/) and [supervisor-stdout](https://github.com/coderanger/supervisor-stdout).
 
 [Supervisor](http://supervisord.org/) is used to start and the sshd daemon when a docker container based on this image is run.
 
@@ -30,7 +29,7 @@ SSH is not required in order to access a terminal for the running container. The
 $ docker exec -it {container-name-or-id} bash
 ```
 
-For cases where access to docker exec is not possible the preferred method is to use Command Keys and the nsenter command. See [command-keys.md](https://github.com/pdouble16/fedora-ssh/blob/centos-7/command-keys.md) for details on how to set this up.
+For cases where access to docker exec is not possible the preferred method is to use Command Keys and the nsenter command. See [command-keys.md](https://github.com/pdouble16/fedora-ssh/blob/command-keys.md) for details on how to set this up.
 
 ## Quick Example
 
@@ -93,7 +92,7 @@ $ sftp \
 
 ### Running
 
-To run the a docker container from this image you can use the standard docker commands. Alternatively, you can use the embedded (Service Container Manager Interface) [scmi](https://github.com/pdouble16/fedora-ssh/blob/centos-7/src/usr/sbin/scmi) that is included in the image since `1.7.2` / `2.1.2` or, if you have a checkout of the [source repository](https://github.com/pdouble16/fedora-ssh), and have make installed the Makefile provides targets to build, install, start, stop etc. where environment variables can be used to configure the container options and set custom docker run parameters.
+To run the a docker container from this image you can use the standard docker commands. Alternatively, you can use the embedded (Service Container Manager Interface) [scmi](https://github.com/pdouble16/fedora-ssh/blob/src/usr/sbin/scmi) that is included in the image since `1.7.2` / `2.1.2` or, if you have a checkout of the [source repository](https://github.com/pdouble16/fedora-ssh), and have make installed the Makefile provides targets to build, install, start, stop etc. where environment variables can be used to configure the container options and set custom docker run parameters.
 
 #### SCMI Installation Examples
 
@@ -148,7 +147,7 @@ $ docker run \
     --manager=systemd \
     --register \
     --env='SSH_SUDO="ALL=(ALL) NOPASSWD:ALL"' \
-    --env='SSH_USER="centos"' \
+    --env='SSH_USER="fedora"' \
     --setopt='--volume {{NAME}}.config-ssh:/etc/ssh'
 ```
 
@@ -194,7 +193,7 @@ $ eval "sudo -E $(
 
 ##### SCMI on Atomic Host
 
-With the addition of install/uninstall image labels it is possible to use [Project Atomic's](http://www.projectatomic.io/) `atomic install` command to simplify install/uninstall tasks on [CentOS Atomic](https://wiki.centos.org/SpecialInterestGroup/Atomic) Hosts.
+With the addition of install/uninstall image labels it is possible to use [Project Atomic's](http://www.projectatomic.io/) `atomic install` command to simplify install/uninstall tasks.
 
 To see detailed information about the image run `scmi` with the `--info` option. To see all available `scmi` options run with the `--help` option.
 
@@ -231,7 +230,7 @@ $ sudo -E atomic uninstall \
 
 #### Using environment variables
 
-The following example overrides the default "app-admin" SSH username, (and corresponding home directory path), with "centos" and "/home/centos" respectively via the `SSH_USER` environment variable.
+The following example overrides the default "app-admin" SSH username, (and corresponding home directory path), with "fedora" and "/home/fedora" respectively via the `SSH_USER` environment variable.
 
 *Note:* Settings applied by environment variables will override those set within configuration volumes from release 1.3.1. Existing installations that use the sshd-bootstrap.conf saved on a configuration "data" volume will not allow override by the environment variables. Also users can update sshd-bootstrap.conf to prevent the value being replaced by that set using the environment variable.
 
@@ -241,7 +240,7 @@ $ docker stop ssh.1 \
   ; docker run -d \
   --name ssh.1 \
   -p :22 \
-  --env "SSH_USER=centos" \
+  --env "SSH_USER=fedora" \
   pdouble16/fedora-ssh:2.6.0
 ```
 
@@ -400,7 +399,7 @@ On first run the SSH user is created with the default username of "app-admin". I
 
 ```
 ...
-  --env "SSH_USER=centos" \
+  --env "SSH_USER=fedora" \
 ...
 ```
 
@@ -420,7 +419,7 @@ On first run the SSH user is created with the default HOME directory of `/home/%
 
 ```
 ...
-  --env "SSH_USER_HOME=/home/centos" \
+  --env "SSH_USER_HOME=/home/fedora" \
 ...
 ```
 
