@@ -20,17 +20,6 @@ jobs:
             docker version
             docker info
 
-      - restore_cache:
-          keys:
-            - cache-{{ .Branch }}
-
-      - run:
-          name: Loading docker cache
-          command: |
-            if [[ -f /cache/layers.tar ]]; then
-              docker load -i /cache/layers.tar
-            fi
-
       - run:
           name: Build docker image
           command: |
@@ -49,16 +38,6 @@ jobs:
       #       sudo apt-get install expect
       #       make -d test
 
-      - run:
-          name: Generate docker build image cache
-          command: |
-            mkdir -p /cache
-            docker save -o /cache/layers.tar ${IMAGE_NAME}
-
-      - save_cache:
-          key: cache-{{ .Branch }}-{{ epoch }}
-          paths:
-            - /cache/layers.tar
 
 workflows:
   version: 2
