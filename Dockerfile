@@ -10,8 +10,7 @@ ARG YUM_PROXY=
 # - Install supervisor-stdout to allow output of services started by
 #  supervisord to be easily inspected with "docker logs".
 # ------------------------------------------------------------------------------
-RUN rpm --rebuilddb \
-	&& echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
+RUN echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 	&& dnf -y install \
 			--setopt=tsflags=nodocs \
 	    inotify-tools-3.14-17.fc30 \
