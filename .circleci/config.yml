@@ -39,10 +39,6 @@ jobs:
       - run:
           name: Test
           command: |
-            sudo sh -c 'cat > /etc/apt/apt.conf.d/01proxy <<EOF
-            Acquire::HTTP::Proxy "http://169.254.169.254:3142/";
-            Acquire::HTTPS::Proxy false;
-            EOF'
             sudo make test-setup
             sudo apt-get install expect
             make -d test
