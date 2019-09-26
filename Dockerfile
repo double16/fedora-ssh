@@ -1,6 +1,6 @@
 FROM fedora:30
 
-ARG RELEASE_VERSION="30.0.0"
+ARG RELEASE_VERSION="30.0.1"
 ARG YUM_PROXY=
 
 # ------------------------------------------------------------------------------
@@ -13,15 +13,15 @@ ARG YUM_PROXY=
 RUN echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 	&& dnf -y install \
 			--setopt=tsflags=nodocs \
-	    inotify-tools-3.14-17.fc30 \
-		openssh-clients-8.0p1-5.fc30 \
-		openssh-server-8.0p1-5.fc30 \
-		openssl-1:1.1.1c-6.fc30 \
-		python2-setuptools-40.8.0-1.fc30 \
-		util-linux-user-2.33.2-2.fc30 \
-		procps-ng-3.3.15-5.fc30 \
-		findutils-4.6.0-22.fc30 \
-		passwd-0.80-5.fc30 \
+	  inotify-tools \
+		openssh-clients \
+		openssh-server \
+		openssl \
+		python2-setuptools \
+		util-linux-user \
+		procps-ng \
+		findutils \
+		passwd \
 	&& dnf clean all \
 	&& sed '/^proxy=/d' -i /etc/dnf/dnf.conf \
 	&& easy_install \
@@ -89,7 +89,7 @@ ENV \
 	SSH_USER="app-admin" \
 	SSH_USER_FORCE_SFTP="false" \
 	SSH_USER_HOME="/home/%u" \
-	SSH_USER_ID="500:500" \
+	SSH_USER_ID="1000:1000" \
 	SSH_USER_PASSWORD="" \
 	SSH_USER_PASSWORD_HASHED="false" \
 	SSH_USER_PRIVATE_KEY="" \

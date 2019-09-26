@@ -11,7 +11,7 @@ The latest Fedora based releases can be pulled from the `fedora:30` Docker tag. 
 
 ### Tags and respective `Dockerfile` links
 
-- `30`,[`30.0.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/30.0.0) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
+- `30`,[`30.0.1`](https://github.com/pdouble16/fedora-ssh/releases/tag/30.0.1) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 
 The Dockerfile can be used to build a base image that is the bases for several other docker images.
 
@@ -41,7 +41,7 @@ Run up an SSH container named 'ssh.1' from the docker image 'pdouble16/fedora-ss
 $ docker run -d \
   --name ssh.1 \
   -p 2020:22 \
-  pdouble16/fedora-ssh:2.6.0
+  pdouble16/fedora-ssh:30
 ```
 
 Check the logs for the password (required for sudo).
@@ -75,7 +75,7 @@ $ docker run -d \
   --name sftp.1 \
   -p 2021:22 \
   -e SSH_USER_FORCE_SFTP=true \
-  pdouble16/fedora-ssh:2.6.0
+  pdouble16/fedora-ssh:30
 ```
 
 Connect using the `sftp` command line client with the [insecure private key](https://github.com/mitchellh/vagrant/blob/master/keys/vagrant).
@@ -105,10 +105,10 @@ $ docker run \
   --rm \
   --privileged \
   --volume /:/media/root \
-  pdouble16/fedora-ssh:2.6.0 \
+  pdouble16/fedora-ssh:30 \
   /usr/sbin/scmi install \
     --chroot=/media/root \
-    --tag=2.6.0 \
+    --tag=30 \
     --name=ssh.1 \
     --setopt="--volume {{NAME}}.config-ssh:/etc/ssh"
 ```
@@ -122,10 +122,10 @@ $ docker run \
   --rm \
   --privileged \
   --volume /:/media/root \
-  pdouble16/fedora-ssh:2.6.0 \
+  pdouble16/fedora-ssh:30 \
   /usr/sbin/scmi uninstall \
     --chroot=/media/root \
-    --tag=2.6.0 \
+    --tag=30 \
     --name=ssh.1 \
     --setopt="--volume {{NAME}}.config-ssh:/etc/ssh"
 ```
@@ -139,10 +139,10 @@ $ docker run \
   --rm \
   --privileged \
   --volume /:/media/root \
-  pdouble16/fedora-ssh:2.6.0 \
+  pdouble16/fedora-ssh:30 \
   /usr/sbin/scmi install \
     --chroot=/media/root \
-    --tag=2.6.0 \
+    --tag=30 \
     --name=ssh.1 \
     --manager=systemd \
     --register \
@@ -158,7 +158,7 @@ Since release tags `1.7.2` / `2.1.2` the install template has been added to the 
 _NOTE:_ A prerequisite of the following examples is that the image has been pulled (or loaded from the release package).
 
 ```
-$ docker pull pdouble16/fedora-ssh:2.6.0
+$ docker pull pdouble16/fedora-ssh:30
 ```
 
 To see detailed information about the image run `scmi` with the `--info` option. To see all available `scmi` options run with the `--help` option.
@@ -167,7 +167,7 @@ To see detailed information about the image run `scmi` with the `--info` option.
 $ eval "sudo -E $(
     docker inspect \
     -f "{{.ContainerConfig.Labels.install}}" \
-    pdouble16/fedora-ssh:2.6.0
+    pdouble16/fedora-ssh:30
   ) --info"
 ```
 
@@ -177,7 +177,7 @@ To perform an installation using the docker name `ssh.2` simply use the `--name`
 $ eval "sudo -E $(
     docker inspect \
     -f "{{.ContainerConfig.Labels.install}}" \
-    pdouble16/fedora-ssh:2.6.0
+    pdouble16/fedora-ssh:30
   ) --name=ssh.2"
 ```
 
@@ -187,7 +187,7 @@ To uninstall use the *same command* that was used to install but with the `unins
 $ eval "sudo -E $(
     docker inspect \
     -f "{{.ContainerConfig.Labels.uninstall}}" \
-    pdouble16/fedora-ssh:2.6.0
+    pdouble16/fedora-ssh:30
   ) --name=ssh.2"
 ```
 
@@ -200,7 +200,7 @@ To see detailed information about the image run `scmi` with the `--info` option.
 ```
 $ sudo -E atomic install \
   -n ssh.3 \
-  pdouble16/fedora-ssh:2.6.0 \
+  pdouble16/fedora-ssh:30 \
   --info
 ```
 
@@ -209,14 +209,14 @@ To perform an installation using the docker name `ssh.3` simply use the `-n` opt
 ```
 $ sudo -E atomic install \
   -n ssh.3 \
-  pdouble16/fedora-ssh:2.6.0
+  pdouble16/fedora-ssh:30
 ```
 
 Alternatively, you could use the `scmi` options `--name` or `-n` for naming the container.
 
 ```
 $ sudo -E atomic install \
-  pdouble16/fedora-ssh:2.6.0 \
+  pdouble16/fedora-ssh:30 \
   --name ssh.3
 ```
 
@@ -225,7 +225,7 @@ To uninstall use the *same command* that was used to install but with the `unins
 ```
 $ sudo -E atomic uninstall \
   -n ssh.3 \
-  pdouble16/fedora-ssh:2.6.0
+  pdouble16/fedora-ssh:30
 ```
 
 #### Using environment variables
@@ -241,7 +241,7 @@ $ docker stop ssh.1 \
   --name ssh.1 \
   -p :22 \
   --env "SSH_USER=fedora" \
-  pdouble16/fedora-ssh:2.6.0
+  pdouble16/fedora-ssh:30
 ```
 
 To identify the `SSH_USER` user's sudoer password, inspect the container's logs as follows:
@@ -281,7 +281,7 @@ SSH Details
 --------------------------------------------------------------------------------
 chroot path : N/A
 home : /home/app-admin
-id : 500:500
+id : 1000:1000
 key fingerprints :
 dd:3b:b8:2e:85:04:06:e9:ab:ff:a8:0a:c0:04:6e:d6 (insecure key)
 password : uIEqLkiacCvxaN45
@@ -508,7 +508,7 @@ On first run the SSH user is created with a default shell of "/bin/bash". If you
 
 ##### SSH_USER_ID
 
-Use `SSH_USER_ID` to set a specific UID:GID for the `SSH_USER`. The values should be 500 or more for non system users - the default being 500:500. Using values in the range 2-499 is possible but should be used with caution as these values may conflict with existing system accounts.
+Use `SSH_USER_ID` to set a specific UID:GID for the `SSH_USER`. The values should be 1000 or more for non system users - the default being 1000:1000. Using values in the range 2-499 is possible but should be used with caution as these values may conflict with existing system accounts.
 
 This may be useful when running an SFTP container and mounting data volumes from an existing container.
 
