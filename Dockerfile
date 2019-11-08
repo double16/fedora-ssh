@@ -1,6 +1,6 @@
-FROM fedora:30
+FROM fedora:31
 
-ARG RELEASE_VERSION="30.0.1"
+ARG RELEASE_VERSION="31.0.0"
 ARG YUM_PROXY=
 
 # ------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ RUN echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 		openssh-clients \
 		openssh-server \
 		openssl \
-		python2-setuptools \
+		python2-pip \
 		util-linux-user \
 		procps-ng \
 		findutils \
 		passwd \
 	&& dnf clean all \
 	&& sed '/^proxy=/d' -i /etc/dnf/dnf.conf \
-	&& easy_install \
+	&& pip2 install --prefix /usr \
 		'supervisor == 4.0.4' \
 		'supervisor-stdout == 0.1.1' \
 	&& mkdir -p \
@@ -127,7 +127,7 @@ pdouble16/fedora-ssh:${RELEASE_VERSION} \
 	org.label-schema.license="MIT" \
 	org.label-schema.vendor="pdouble16" \
 	org.label-schema.url="https://github.com/pdouble16/fedora-ssh" \
-	org.label-schema.description="Fedora 30 - Supervisor / OpenSSH."
+	org.label-schema.description="Fedora 31 - Supervisor / OpenSSH."
 
 HEALTHCHECK \
 	--interval=1s \

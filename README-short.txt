@@ -1,1 +1,1 @@
-Fedora 30 x86_64 - Supervisor / OpenSSH.
+Fedora 31 x86_64 - Supervisor / OpenSSH.
