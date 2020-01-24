@@ -1,6 +1,6 @@
 FROM fedora:31
 
-ARG RELEASE_VERSION="31.0.0"
+ARG RELEASE_VERSION="31.1.0"
 ARG YUM_PROXY=
 
 # ------------------------------------------------------------------------------
@@ -22,6 +22,8 @@ RUN echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 		procps-ng \
 		findutils \
 		passwd \
+		wget \
+		rsync \
 	&& dnf clean all \
 	&& sed '/^proxy=/d' -i /etc/dnf/dnf.conf \
 	&& pip2 install --prefix /usr \

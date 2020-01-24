@@ -1,5 +1,9 @@
 # Change Log
 
+## 31.1.0 - fedora-31
+
+Install `wget` and `rsync`.
+
 ## 31.0.0 - fedora-31
 
 Fedora 31.
