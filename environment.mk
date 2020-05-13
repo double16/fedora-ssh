@@ -25,7 +25,6 @@ STARTUP_TIME ?= 2
 # ------------------------------------------------------------------------------
 ENABLE_SSHD_BOOTSTRAP ?= true
 ENABLE_SSHD_WRAPPER ?= true
-ENABLE_SUPERVISOR_STDOUT ?= false
 SSH_AUTHORIZED_KEYS ?=
 SSH_CHROOT_DIRECTORY ?= %h
 SSH_INHERIT_ENVIRONMENT ?= false

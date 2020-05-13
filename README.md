@@ -7,10 +7,11 @@ Includes public key authentication, Automated password generation and supports c
 
 ## Overview & links
 
-The latest Fedora based releases can be pulled from the `fedora:31` Docker tag. For production use it is recommended to select a specific release tag as shown in the examples.
+The latest Fedora based releases can be pulled from the `fedora:32` Docker tag. For production use it is recommended to select a specific release tag as shown in the examples.
 
 ### Tags and respective `Dockerfile` links
 
+- `32`,[`32.0.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/32.0.0) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 - `31`,[`31.1.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/31.1.0) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 - `30`,[`30.0.1`](https://github.com/pdouble16/fedora-ssh/releases/tag/30.0.1) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 
@@ -42,7 +43,7 @@ Run up an SSH container named 'ssh.1' from the docker image 'pdouble16/fedora-ss
 $ docker run -d \
   --name ssh.1 \
   -p 2020:22 \
-  pdouble16/fedora-ssh:31
+  pdouble16/fedora-ssh:32
 ```
 
 Check the logs for the password (required for sudo).
@@ -76,7 +77,7 @@ $ docker run -d \
   --name sftp.1 \
   -p 2021:22 \
   -e SSH_USER_FORCE_SFTP=true \
-  pdouble16/fedora-ssh:31
+  pdouble16/fedora-ssh:32
 ```
 
 Connect using the `sftp` command line client with the [insecure private key](https://github.com/mitchellh/vagrant/blob/master/keys/vagrant).
@@ -106,10 +107,10 @@ $ docker run \
   --rm \
   --privileged \
   --volume /:/media/root \
-  pdouble16/fedora-ssh:31 \
+  pdouble16/fedora-ssh:32 \
   /usr/sbin/scmi install \
     --chroot=/media/root \
-    --tag=31 \
+    --tag=32 \
     --name=ssh.1 \
     --setopt="--volume {{NAME}}.config-ssh:/etc/ssh"
 ```
@@ -123,10 +124,10 @@ $ docker run \
   --rm \
   --privileged \
   --volume /:/media/root \
-  pdouble16/fedora-ssh:31 \
+  pdouble16/fedora-ssh:32 \
   /usr/sbin/scmi uninstall \
     --chroot=/media/root \
-    --tag=31 \
+    --tag=32 \
     --name=ssh.1 \
     --setopt="--volume {{NAME}}.config-ssh:/etc/ssh"
 ```
@@ -140,10 +141,10 @@ $ docker run \
   --rm \
   --privileged \
   --volume /:/media/root \
-  pdouble16/fedora-ssh:31 \
+  pdouble16/fedora-ssh:32 \
   /usr/sbin/scmi install \
     --chroot=/media/root \
-    --tag=31 \
+    --tag=32 \
     --name=ssh.1 \
     --manager=systemd \
     --register \
@@ -159,7 +160,7 @@ Since release tags `1.7.2` / `2.1.2` the install template has been added to the 
 _NOTE:_ A prerequisite of the following examples is that the image has been pulled (or loaded from the release package).
 
 ```
-$ docker pull pdouble16/fedora-ssh:31
+$ docker pull pdouble16/fedora-ssh:32
 ```
 
 To see detailed information about the image run `scmi` with the `--info` option. To see all available `scmi` options run with the `--help` option.
@@ -168,7 +169,7 @@ To see detailed information about the image run `scmi` with the `--info` option.
 $ eval "sudo -E $(
     docker inspect \
     -f "{{.ContainerConfig.Labels.install}}" \
-    pdouble16/fedora-ssh:31
+    pdouble16/fedora-ssh:32
   ) --info"
 ```
 
@@ -178,7 +179,7 @@ To perform an installation using the docker name `ssh.2` simply use the `--name`
 $ eval "sudo -E $(
     docker inspect \
     -f "{{.ContainerConfig.Labels.install}}" \
-    pdouble16/fedora-ssh:31
+    pdouble16/fedora-ssh:32
   ) --name=ssh.2"
 ```
 
@@ -188,7 +189,7 @@ To uninstall use the *same command* that was used to install but with the `unins
 $ eval "sudo -E $(
     docker inspect \
     -f "{{.ContainerConfig.Labels.uninstall}}" \
-    pdouble16/fedora-ssh:31
+    pdouble16/fedora-ssh:32
   ) --name=ssh.2"
 ```
 
@@ -201,7 +202,7 @@ To see detailed information about the image run `scmi` with the `--info` option.
 ```
 $ sudo -E atomic install \
   -n ssh.3 \
-  pdouble16/fedora-ssh:31 \
+  pdouble16/fedora-ssh:32 \
   --info
 ```
 
@@ -210,14 +211,14 @@ To perform an installation using the docker name `ssh.3` simply use the `-n` opt
 ```
 $ sudo -E atomic install \
   -n ssh.3 \
-  pdouble16/fedora-ssh:31
+  pdouble16/fedora-ssh:32
 ```
 
 Alternatively, you could use the `scmi` options `--name` or `-n` for naming the container.
 
 ```
 $ sudo -E atomic install \
-  pdouble16/fedora-ssh:31 \
+  pdouble16/fedora-ssh:32 \
   --name ssh.3
 ```
 
@@ -226,7 +227,7 @@ To uninstall use the *same command* that was used to install but with the `unins
 ```
 $ sudo -E atomic uninstall \
   -n ssh.3 \
-  pdouble16/fedora-ssh:31
+  pdouble16/fedora-ssh:32
 ```
 
 #### Using environment variables
@@ -242,7 +243,7 @@ $ docker stop ssh.1 \
   --name ssh.1 \
   -p :22 \
   --env "SSH_USER=fedora" \
-  pdouble16/fedora-ssh:31
+  pdouble16/fedora-ssh:32
 ```
 
 To identify the `SSH_USER` user's sudoer password, inspect the container's logs as follows:
@@ -255,7 +256,6 @@ The output of the logs will show the auto-generated password for the user specif
 
 ```
 2019-06-20 00:10:35,306 WARN No file matches via include "/etc/supervisord.d/*.ini"
-2019-06-20 00:10:35,306 INFO Included extra file "/etc/supervisord.d/00-supervisor_stdout.conf" during parsing
 2019-06-20 00:10:35,307 INFO Included extra file "/etc/supervisord.d/10-system-timezone-wrapper.conf" during parsing
 2019-06-20 00:10:35,307 INFO Included extra file "/etc/supervisord.d/20-sshd-bootstrap.conf" during parsing
 2019-06-20 00:10:35,307 INFO Included extra file "/etc/supervisord.d/50-sshd-wrapper.conf" during parsing
@@ -318,10 +318,6 @@ It may be desirable to prevent the startup of the sshd-bootstrap script and/or s
   --env "ENABLE_SSHD_WRAPPER=false" \
 ...
 ```
-
-##### ENABLE_SUPERVISOR_STDOUT
-
-This image has `supervisor_stdout` installed which can be used to allow a process controlled by supervisord to send output to both a log file and stdout. It is recommended to simply output to stdout in order to reduce the number of running processes to a minimum. Setting `ENABLE_SUPERVISOR_STDOUT` to "false" will prevent the startup of `supervisor_stdout`. Where an image requires this feature for its logging output `ENABLE_SUPERVISOR_STDOUT` should be set to "true".
 
 ##### SSH_AUTHORIZED_KEYS
 

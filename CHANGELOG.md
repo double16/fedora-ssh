@@ -1,5 +1,11 @@
 # Change Log
 
+## 32.0.0 - fedora-32
+
+Fedora 32.
+
+Testing pre-release.
+
 ## 31.1.0 - fedora-31
 
 Install `wget` and `rsync`.

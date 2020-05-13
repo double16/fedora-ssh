@@ -45,7 +45,7 @@ function main ()
 		system-timezone -qq
 	)"
 
-	if ! ps axo command | grep -qE '^/usr/bin/python2 /usr/bin/supervisord'
+	if ! ps axo command | grep -qE '^/usr/bin/python3 /usr/bin/supervisord'
 	then
 		>&2 printf -- \
 			"supervisord not running"
@@ -78,7 +78,7 @@ function main ()
 
 	if [[ ${ENABLE_SSHD_WRAPPER} == true ]]
 	then
-		if ! ps axo command | grep -qE '^/usr/sbin/sshd -D' \
+		if ! ps axo command | grep -qE '^(sshd: )?/usr/sbin/sshd -D' \
 			|| [[ ! -s /var/run/sshd.pid ]]
 		then
 			>&2 printf -- \

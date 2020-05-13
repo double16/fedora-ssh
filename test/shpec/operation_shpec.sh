@@ -1741,52 +1741,6 @@ function test_custom_ssh_configuration ()
 			docker run \
 				--detach \
 				--name ssh.1 \
-				--env "ENABLE_SUPERVISOR_STDOUT=true" \
-				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				pdouble16/fedora-ssh:latest \
-			&> /dev/null
-
-			sleep ${STARTUP_TIME}
-
-			it "Can enable supervisor_stdout."
-				docker top ssh.1 \
-					| grep -qE '/usr/bin/python2 /usr/bin/supervisor_stdout'
-
-				assert equal \
-					"${?}" \
-					"0"
-			end
-
-			__terminate_container \
-				ssh.1 \
-			&> /dev/null
-
-			docker run \
-				--detach \
-				--name ssh.1 \
-				--env "ENABLE_SUPERVISOR_STDOUT=false" \
-				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				pdouble16/fedora-ssh:latest \
-			&> /dev/null
-
-			sleep ${STARTUP_TIME}
-
-			it "Can disable supervisor_stdout."
-				docker top ssh.1 \
-					| grep -qE '/usr/bin/python2 /usr/bin/supervisor_stdout'
-
-				assert equal \
-					"${?}" \
-					"1"
-			end
-
-			__terminate_container \
-				ssh.1 \
-			&> /dev/null
-
-			docker run \
-				--detach \
-				--name ssh.1 \
 				--env "ENABLE_SSHD_BOOTSTRAP=false" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				pdouble16/fedora-ssh:latest \
@@ -2244,8 +2198,8 @@ function test_healthcheck ()
 						/usr/sbin/sshd2" \
 				&& docker exec -t \
 					ssh.1 \
-					bash -c "if [[ -n \$(pgrep -f '^/usr/sbin/sshd -D') ]]; then \
-						kill -9 \$(pgrep -f '^/usr/sbin/sshd -D'); \
+					bash -c "if [[ -n \$(pgrep -f '/usr/sbin/sshd -D') ]]; then \
+						kill -9 \$(pgrep -f '/usr/sbin/sshd -D'); \
 					fi"
 
 				events_since_timestamp="$(

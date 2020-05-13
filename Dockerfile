@@ -1,6 +1,6 @@
-FROM fedora:31
+FROM fedora:32
 
-ARG RELEASE_VERSION="31.1.0"
+ARG RELEASE_VERSION="32.0.0"
 ARG YUM_PROXY=
 
 # ------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ RUN echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 		openssh-clients \
 		openssh-server \
 		openssl \
-		python2-pip \
+		python3-pip \
 		util-linux-user \
 		procps-ng \
 		findutils \
@@ -26,9 +26,8 @@ RUN echo "proxy=${YUM_PROXY}" >> /etc/dnf/dnf.conf \
 		rsync \
 	&& dnf clean all \
 	&& sed '/^proxy=/d' -i /etc/dnf/dnf.conf \
-	&& pip2 install --prefix /usr \
-		'supervisor == 4.0.4' \
-		'supervisor-stdout == 0.1.1' \
+	&& pip3 install --prefix /usr \
+		'supervisor == 4.2.0' \
 	&& mkdir -p \
 		/var/log/supervisor/ \
 	&& rm -rf /etc/ld.so.cache \
@@ -82,7 +81,6 @@ EXPOSE 22
 ENV \
 	ENABLE_SSHD_BOOTSTRAP="true" \
 	ENABLE_SSHD_WRAPPER="true" \
-	ENABLE_SUPERVISOR_STDOUT="false" \
 	SSH_AUTHORIZED_KEYS="" \
 	SSH_CHROOT_DIRECTORY="%h" \
 	SSH_INHERIT_ENVIRONMENT="false" \
@@ -129,7 +127,7 @@ pdouble16/fedora-ssh:${RELEASE_VERSION} \
 	org.label-schema.license="MIT" \
 	org.label-schema.vendor="pdouble16" \
 	org.label-schema.url="https://github.com/pdouble16/fedora-ssh" \
-	org.label-schema.description="Fedora 31 - Supervisor / OpenSSH."
+	org.label-schema.description="Fedora 32 - Supervisor / OpenSSH."
 
 HEALTHCHECK \
 	--interval=1s \
