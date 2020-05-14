@@ -1,5 +1,9 @@
 # Change Log
 
+## 31.1.1 - fedora-31
+
+Configure `supervisorctl`.
+
 ## 31.1.0 - fedora-31
 
 Install `wget` and `rsync`.
