@@ -1828,6 +1828,46 @@ function test_custom_ssh_configuration ()
 			end
 		end
 
+		describe "supervisorctl"
+			__terminate_container \
+				ssh.1 \
+			&> /dev/null
+
+			docker run \
+				--detach \
+				--name ssh.1 \
+				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
+				pdouble16/fedora-ssh:latest \
+			&> /dev/null
+
+			container_port_22="$(
+				__get_container_port \
+					ssh.1 \
+					22/tcp
+			)"
+
+			if ! __is_container_ready \
+				ssh.1 \
+				${STARTUP_TIME} \
+				"/usr/sbin/sshd " \
+				"[[ -s /var/run/sshd.pid ]]"
+			then
+				exit 1
+			fi
+
+			it "can talk to supervisord"
+				avail="$(
+					docker exec \
+						ssh.1 \
+     					/usr/bin/supervisorctl avail
+				)"
+
+				assert __shpec_matcher_egrep \
+					"${avail}" \
+					".*sshd-bootstrap.*"
+			end
+		end
+
 		__terminate_container \
 			ssh.1 \
 		&> /dev/null
