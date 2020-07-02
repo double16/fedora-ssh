@@ -1,6 +1,6 @@
 FROM fedora:32
 
-ARG RELEASE_VERSION="32.0.0"
+ARG RELEASE_VERSION="32.0.1"
 ARG YUM_PROXY=
 
 # ------------------------------------------------------------------------------

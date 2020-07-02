@@ -11,7 +11,7 @@ The latest Fedora based releases can be pulled from the `fedora:32` Docker tag. 
 
 ### Tags and respective `Dockerfile` links
 
-- `32`,[`32.0.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/32.0.0) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
+- `32`,[`32.0.1`](https://github.com/pdouble16/fedora-ssh/releases/tag/32.0.1) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 - `31`,[`31.1.0`](https://github.com/pdouble16/fedora-ssh/releases/tag/31.1.0) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 - `30`,[`30.0.1`](https://github.com/pdouble16/fedora-ssh/releases/tag/30.0.1) [(Dockerfile)](https://github.com/pdouble16/fedora-ssh/blob/Dockerfile)
 

@@ -1234,7 +1234,7 @@ function main ()
 	fi
 
 	# SSH require files
-	mkdir -m 700 \
+	mkdir -p -m 700 \
 		"${ssh_user_home}"/.ssh
 	touch \
 		"${ssh_user_home}"/.ssh/authorized_keys

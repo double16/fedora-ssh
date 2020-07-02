@@ -1,5 +1,9 @@
 # Change Log
 
+## 32.0.1 - fedora-32
+
+Does not fail sshd-bootstrap if `.ssh` directory exists. Allows user home to be kept in a volume.
+
 ## 32.0.0 - fedora-32
 
 Fedora 32.
